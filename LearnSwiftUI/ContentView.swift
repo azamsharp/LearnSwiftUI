@@ -8,9 +8,20 @@
 import SwiftUI
 
 struct ContentView: View {
+    
+    @State private var taskName: String = ""
+    @State private var tasks: [String] = []
+    
     var body: some View {
-        Text("Hello, world!")
-            .padding()
+        print("body")
+        return VStack {
+            TextField("Enter task", text: $taskName, onEditingChanged: { _ in }) {
+                // commit
+                tasks.append(taskName)
+            }
+            Spacer()
+           
+        }.padding()
     }
 }
 
